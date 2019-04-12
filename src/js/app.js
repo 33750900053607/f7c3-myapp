@@ -56,6 +56,11 @@ var app = new Framework7({
   serviceWorker: {
     path: '/service-worker.js',
   },
+  // picker property
+  picker: {
+    rotateEffect: true,
+    openIn: 'popover',
+  }
 });
 
 // Login Screen Demo
@@ -68,4 +73,30 @@ $$('#my-login-screen .login-button').on('click', function () {
 
   // Alert username and password
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
+});
+
+// Picker With Single Value
+var pickerDevice = app.picker.create({
+  inputEl: '#demo-picker-device',
+  cols: [
+    {
+      textAlign: 'center',
+      values: ['iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPad 2', 'iPad Retina', 'iPad Air', 'iPad mini', 'iPad mini 2', 'iPad mini 3']
+    }
+  ]
+});
+
+// Picker With Two Values and 3D-Rotate Effect
+var pickerDescribe = app.picker.create({
+  inputEl: '#demo-picker-describe',
+    rotateEffect: true,
+    cols: [
+      {
+        textAlign: 'left',
+        values: ('Super Amazing Bat Iron Rocket Lex Beautiful Wonderful Raining Happy Funny Cool Hot').split(' ')
+      },
+      {
+        values: ('Man Luthor Woman Boy Girl Person Cutie Babe Raccoon').split(' ')
+      },
+    ]
 });
